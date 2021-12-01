@@ -1,13 +1,11 @@
 import logo from './logo.svg';
-import './App.css';
+//import './App.css';
+import RecipesApp from './Components/RecipesApp';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h2>Recipes</h2>
-        <h2>Make a recipe</h2>
-      </header>
+      <RecipesApp />
     </div>
   );
 }
