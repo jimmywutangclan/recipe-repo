@@ -4,8 +4,8 @@ import { useParams } from 'react-router'
 export default function RecipeFC(props) {
     // load data from params and props
     const { id } = useParams();
-
     const [recipe, editRecipe] = useState(props.recipes[id]); 
+    const [toDelete, changeDeletePrompt] = useState(false);
 
     const stepsList = recipe.steps;
     const ingredientsList = recipe.ingredients;
@@ -20,6 +20,12 @@ export default function RecipeFC(props) {
         editRecipe(clone);
     };
 
+    // function to trigger delete
+    const triggerDeletePrompt = (event, val) => {
+        event.preventDefault();
+        changeDeletePrompt(val);
+    };
+
     // creates html mapping
     const htmlSteps = stepsList.map((step, index) => <li>{step.content}{step.sublist ? <ul>
         {step.sublist.map((step, index) => <li>{step}</li>)}
@@ -31,6 +37,8 @@ export default function RecipeFC(props) {
     return (
         <div>
             <a href={"/edit/" + id}>Edit</a>
+            {toDelete ? <label>Are you sure you want to delete?<button>Yes</button><button onClick={(event) => triggerDeletePrompt(event, false)}>No</button></label> : 
+                <button onClick={(event) => triggerDeletePrompt(event, true)}>Delete</button>}
             <form>
                 <label>Adjust proportions: <input type="text"></input></label>
                 <button>Adjust</button>
