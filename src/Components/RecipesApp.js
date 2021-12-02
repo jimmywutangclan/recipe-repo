@@ -27,6 +27,12 @@ export default class RecipesApp extends Component {
         localStorage.setItem('recipes', JSON.stringify(recipeCopy));
     };
 
+    // helper function to delete recipe
+    replaceRecipeList = (recipes) => {
+        this.setState({ recipes: recipes });
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+    };
+
     render() {
         const recipeList = this.state.recipes;
         const recipeHtml = recipeList.map((recipe, index) => <h2><a href={"/recipes/" + index}>{recipe.name}</a></h2>)
@@ -38,7 +44,7 @@ export default class RecipesApp extends Component {
                     <Routes>
                         <Route path="/" element={<MainMenu recipePreviews={recipeHtml} />} />
                         <Route path="/submit" element={<AddRecipe submitRecipe={this.submitRecipe} futureIndex={this.state.recipes.length}/>} />
-                        <Route path="/recipes/:id" element={<Recipe recipes={this.state.recipes} />} />
+                        <Route path="/recipes/:id" element={<Recipe recipes={this.state.recipes} replaceRecipeList={this.replaceRecipeList}/>} />
                         <Route path="/edit/:id" element={<EditRecipe recipes={this.state.recipes} replaceRecipe={this.replaceRecipe}/>} />
                         <Route path="/*" element={<h1>Out of bounds</h1>} />
                     </Routes>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 export default function RecipeFC(props) {
     // load data from params and props
     const { id } = useParams();
+    const nav = useNavigate();
     const [recipe, editRecipe] = useState(props.recipes[id]); 
     const [toDelete, changeDeletePrompt] = useState(false);
 
@@ -18,6 +20,15 @@ export default function RecipeFC(props) {
 
         clone.ingredients[ingredientId].amount -= 1;
         editRecipe(clone);
+    };
+
+    // delete the recipe
+    const deleteRecipe = (event) => {
+        event.preventDefault();
+        const recipeCopy = props.recipes;
+        recipeCopy.splice(id, 1);
+        props.replaceRecipeList(recipeCopy);
+        nav("/");
     };
 
     // function to trigger delete
@@ -37,7 +48,7 @@ export default function RecipeFC(props) {
     return (
         <div>
             <a href={"/edit/" + id}>Edit</a>
-            {toDelete ? <label>Are you sure you want to delete?<button>Yes</button><button onClick={(event) => triggerDeletePrompt(event, false)}>No</button></label> : 
+            {toDelete ? <label>Are you sure you want to delete?<button onClick={deleteRecipe}>Yes</button><button onClick={(event) => triggerDeletePrompt(event, false)}>No</button></label> : 
                 <button onClick={(event) => triggerDeletePrompt(event, true)}>Delete</button>}
             <form>
                 <label>Adjust proportions: <input type="text"></input></label>
