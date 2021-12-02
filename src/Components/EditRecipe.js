@@ -141,7 +141,7 @@ export default function EditRecipe(props) {
             <div>
                 <h2>Edit recipe</h2>
                 <form>
-                    <label>Recipe name: <input type="text" value={name}></input></label>
+                    <label>Recipe name: <input type="text" value={name} onChange={(event) => setName(event.target.value)}></input></label>
                     <h3>Ingredients:</h3>
                     {ingredientsForms}
                     <button onClick={addIngredient}>Add ingredient</button>
