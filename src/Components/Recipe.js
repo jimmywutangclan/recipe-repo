@@ -31,6 +31,10 @@ export default function RecipeFC(props) {
     return (
         <div>
             <a href={"/edit/" + id}>Edit</a>
+            <form>
+                <label>Adjust proportions: <input type="text"></input></label>
+                <button>Adjust</button>
+            </form>
             <h2>{recipe.name}</h2>
             <h3>Ingredients:</h3>
             <ul>
