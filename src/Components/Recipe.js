@@ -22,6 +22,15 @@ export default function RecipeFC(props) {
         editRecipe(clone);
     };
 
+    // fork the recipe
+    const forkRecipe = (event) => {
+        event.preventDefault();
+        const recipeCopy = props.recipes;
+        recipeCopy.push({name: recipe.name, ingredients: ingredientsList, steps: stepsList});
+        props.replaceRecipeList(recipeCopy);
+        nav("/recipes/" + (recipeCopy.length - 1))
+    }
+
     // delete the recipe
     const deleteRecipe = (event) => {
         event.preventDefault();
@@ -48,6 +57,7 @@ export default function RecipeFC(props) {
     return (
         <div>
             <a href={"/edit/" + id}>Edit</a>
+            <button onClick={forkRecipe}>Fork</button>
             {toDelete ? <label>Are you sure you want to delete?<button onClick={deleteRecipe}>Yes</button><button onClick={(event) => triggerDeletePrompt(event, false)}>No</button></label> : 
                 <button onClick={(event) => triggerDeletePrompt(event, true)}>Delete</button>}
             <form>
