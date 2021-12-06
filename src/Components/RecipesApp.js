@@ -45,15 +45,17 @@ export default class RecipesApp extends Component {
 
         return (
             <BrowserRouter>
-                <div>
-                    <h1><a href="/">Recipes</a></h1>
-                    <Routes>
-                        <Route path="/" element={<MainMenu recipePreviews={recipeHtml} clearLocalStorage={this.clearLocalStorage}/>} />
-                        <Route path="/submit" element={<AddRecipe submitRecipe={this.submitRecipe} futureIndex={this.state.recipes.length}/>} />
-                        <Route path="/recipes/:id" element={<Recipe recipes={this.state.recipes} replaceRecipeList={this.replaceRecipeList}/>} />
-                        <Route path="/edit/:id" element={<EditRecipe recipes={this.state.recipes} replaceRecipe={this.replaceRecipe}/>} />
-                        <Route path="/*" element={<h1>Out of bounds</h1>} />
-                    </Routes>
+                <div class="app">
+                    <div class="header"><h1><a href="/">Recipes Repository</a></h1></div>
+                    <div class="body">
+                        <Routes>
+                            <Route path="/" element={<MainMenu recipePreviews={recipeHtml} clearLocalStorage={this.clearLocalStorage}/>} />
+                            <Route path="/submit" element={<AddRecipe submitRecipe={this.submitRecipe} futureIndex={this.state.recipes.length}/>} />
+                            <Route path="/recipes/:id" element={<Recipe recipes={this.state.recipes} replaceRecipeList={this.replaceRecipeList}/>} />
+                            <Route path="/edit/:id" element={<EditRecipe recipes={this.state.recipes} replaceRecipe={this.replaceRecipe}/>} />
+                            <Route path="/*" element={<h1>Out of bounds</h1>} />
+                        </Routes>
+                    </div>
                 </div>
             </BrowserRouter>
         )

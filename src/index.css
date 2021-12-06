@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  color: black;
+  background-color: rgba(134, 218, 218, 0.425);
+  padding: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  padding-right: 15px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.header > h1 > a:hover {
+  color: lightskyblue;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.body {
+  padding: 0px;
+  background-color: whitesmoke;
+  padding-left: 20px;
+}
