@@ -47,7 +47,7 @@ export default function Recipe(props) {
 
     // creates html mapping
     const htmlSteps = stepsList.map((step, index) => <li>{step.content}{step.sublist ? <ul>
-        {step.sublist.map((substep, index) => <li>{substep}</li>)}
+        {step.sublist.map((substep, index) => <li>{substep.content}</li>)}
     </ul> : ''}</li>)
     const htmlIngredients = ingredientsList.map((ingredient, index) => <li>{ingredient.amount + " " + ingredient.unit + " " + ingredient.ingredient}
         <button onClick={() => trackIngredientAmount(index)}>Track amount</button></li>);

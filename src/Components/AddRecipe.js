@@ -80,14 +80,14 @@ export default function AddRecipe(props) {
     const addStepToSublistAt = (event, index, sublistIndex) => {
         event.preventDefault();
         const clone = JSON.parse(JSON.stringify(steps));
-        clone[index].sublist.splice(sublistIndex + 1, 0, "");
+        clone[index].sublist.splice(sublistIndex + 1, 0, { content: "" });
         setSteps(clone);
     }
 
     const editSublistStep = (event, index, sublistIndex) => {
         event.preventDefault();
         const clone = JSON.parse(JSON.stringify(steps));
-        clone[index].sublist[sublistIndex] = event.target.value;
+        clone[index].sublist[sublistIndex].content = event.target.value;
         setSteps(clone);
     }
 
@@ -101,7 +101,7 @@ export default function AddRecipe(props) {
     const addStepToSublist = (event, index) => {
         event.preventDefault();
         const clone = JSON.parse(JSON.stringify(steps));
-        clone[index].sublist.push("");
+        clone[index].sublist.push({ content: "" });
         setSteps(clone);
     }
 
@@ -125,7 +125,7 @@ export default function AddRecipe(props) {
         <button onClick={(event) => addStepToSublist(event, index)}>Add step to sublist</button>
         <button onClick={(event) => deleteStep(event, index)}>Delete</button>
         <ul>
-            {step.sublist.map((item, sublistIndex) => <li><input type="text" value={item} onChange={(event) => editSublistStep(event, index, sublistIndex)}></input>
+            {step.sublist.map((item, sublistIndex) => <li><input type="text" value={item.content} onChange={(event) => editSublistStep(event, index, sublistIndex)}></input>
             <button onClick={(event) => addStepToSublistAt(event, index, sublistIndex)}>Add step in front</button>
             <button onClick={(event) => deleteSublistStep(event, index, sublistIndex)}>Delete step</button></li>)}
         </ul>
