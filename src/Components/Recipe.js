@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router'
-import { useNavigate } from 'react-router'
+import { useParams, useNavigate } from 'react-router'
 
-export default function RecipeFC(props) {
+export default function Recipe(props) {
     // load data from params and props
     const { id } = useParams();
     const nav = useNavigate();
