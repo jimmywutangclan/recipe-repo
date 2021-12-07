@@ -53,6 +53,10 @@ button {
   margin-left: 5px;
 }
 
+button:hover {
+  background-color: rgba(129, 230, 230, 0.808);
+}
+
 .body {
   padding: 0px;
   background-color: whitesmoke;
