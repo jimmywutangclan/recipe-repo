@@ -143,10 +143,10 @@ export default function EditRecipe(props) {
                 <form>
                     <label>Recipe name: <input type="text" value={name} onChange={(event) => setName(event.target.value)}></input></label>
                     <h3>Ingredients:</h3>
-                    {ingredientsForms}
+                    <ul>{ingredientsForms}</ul>
                     <button onClick={addIngredient}>Add ingredient</button>
                     <h3>Steps:</h3>
-                    {stepsForms}
+                    <ol>{stepsForms}</ol>
                     <button onClick={addStepToEnd}>Add step to bottom</button>
                     <button onClick={submitChanges}>Submit</button>
                 </form>

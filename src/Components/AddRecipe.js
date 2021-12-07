@@ -140,7 +140,7 @@ export default function AddRecipe(props) {
                 <ul>{ingredientsForms}</ul>
                 <button onClick={addIngredient}>Add ingredient</button>
                 <h3>Steps:</h3>
-                <ul>{stepsForms}</ul>
+                <ol>{stepsForms}</ol>
                 <button onClick={addStepToEnd}>Add step to bottom</button>
                 <button onClick={submitChanges}>Submit</button>
             </form>

@@ -69,8 +69,8 @@ export default function Recipe(props) {
                 {htmlIngredients}
             </ul>
             <h3>Steps:</h3>
-            <ul>
+            <ol>
                 {htmlSteps}
-            </ul>
+            </ol>
         </div>);
 }
