@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainMenu from './MainMenu';
 import AddRecipe from './AddRecipe';
 import EditRecipe from './EditRecipe';
+import Footer from './Footer';
 
 export default class RecipesApp extends Component {
     constructor(props) {
@@ -56,6 +57,7 @@ export default class RecipesApp extends Component {
                             <Route path="/*" element={<h1>Out of bounds</h1>} />
                         </Routes>
                     </div>
+                    <div><Footer /></div>
                 </div>
             </BrowserRouter>
         )
