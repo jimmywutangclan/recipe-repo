@@ -30,6 +30,7 @@ code {
 a {
   text-decoration: none;
   padding-right: 15px;
+  color: black;
 }
 
 a:visited {
